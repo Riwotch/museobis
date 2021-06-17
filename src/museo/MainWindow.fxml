@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="650.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="museo.MainWindowController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Museo">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <TabPane prefHeight="3000.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabInventaire" text="Inventaire">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="501.0" prefWidth="1000.0">
+                     <children>
+                      <SplitPane dividerPositions="0.5510817307692307" focusTraversable="true" layoutY="-7.0" prefHeight="582.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
+                        <items>
+                              <AnchorPane id="Content" fx:id="tabPaneInventory" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="486.0">
+                                 <children>
+                                    <TableView fx:id="tableViewInventory" layoutX="17.0" layoutY="61.0" onMouseClicked="#clickItem" prefHeight="511.0" prefWidth="520.0" style="-fx-background-color: #a99883;" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="12.200000000000045" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="61.0">
+                                       <columns>
+                                          <TableColumn fx:id="tableColumnNom" editable="false" prefWidth="280.80000591278076" text="Nom" />
+                                          <TableColumn fx:id="tableColumnTag" editable="false" prefWidth="163.199951171875" text="Catégorie" />
+                                          <TableColumn fx:id="tableColumnZone" editable="false" prefWidth="96.800048828125" text="Zone" />
+                                          <TableColumn fx:id="tableColumnStatus" editable="false" prefWidth="84.79998779296875" text="Status" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <TextField fx:id="textFieldInventory" layoutX="12.0" layoutY="19.0" prefHeight="26.0" prefWidth="281.0" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="18.99999999999998" />
+                                    <Button fx:id="buttonModify" layoutX="454.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleButtonModify" prefHeight="16.0" prefWidth="14.0" AnchorPane.rightAnchor="59.60000000000002" AnchorPane.topAnchor="19.0">
+                                       <graphic>
+                                          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/icons8_edit_64px.png" />
+                                             </image>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="buttonAdd" layoutX="499.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleButtonAdd" prefHeight="16.0" prefWidth="14.0" AnchorPane.rightAnchor="14.600000000000023" AnchorPane.topAnchor="19.0">
+                                       <graphic>
+                                          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/icons8_add_64px.png" />
+                                             </image>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="buttonSearch" layoutX="294.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleButtonSearch" prefHeight="16.0" prefWidth="14.0" AnchorPane.topAnchor="19.0">
+                                       <graphic>
+                                          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/icons8_search_in_list_64px.png" />
+                                             </image>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="buttonCancelSearch" layoutX="336.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleButtonCancelSearch" prefHeight="16.0" prefWidth="14.0" AnchorPane.leftAnchor="336.0" AnchorPane.rightAnchor="177.60000000000005" AnchorPane.topAnchor="19.0">
+                                       <graphic>
+                                          <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@img/icons8_close_window_52px.png" />
+                                             </image>
+                                             <effect>
+                                                <InnerShadow />
+                                             </effect>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                          <AnchorPane prefHeight="547.0" prefWidth="630.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" layoutX="62.0" layoutY="60.0" orientation="VERTICAL" prefHeight="375.0" prefWidth="220.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <items>
+                                        <AnchorPane prefHeight="277.0" prefWidth="444.0">
+                                             <children>
+                                                <ImageView fx:id="ImageViewInventory" fitHeight="257.0" fitWidth="282.0" layoutX="82.0" layoutY="15.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.199999999999989" AnchorPane.leftAnchor="82.0" AnchorPane.rightAnchor="81.12567138671875" AnchorPane.topAnchor="15.0" />
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                                             <children>
+                                                <TabPane fx:id="tabPaneDetail" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <tabs>
+                                                    <Tab fx:id="tabDescription" text="Description">
+                                                      <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea fx:id="textAreaDescription" editable="false" layoutY="4.0" prefHeight="254.0" prefWidth="446.0" wrapText="true" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </Tab>
+                                                    <Tab fx:id="tabBibliographie" text="Bibliographie">
+                                                      <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea fx:id="TextAreaBiblio" prefHeight="258.0" prefWidth="443.0" />
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </Tab>
+                                                      <Tab fx:id="tabHistorique" text="Historique">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <TextArea fx:id="TextAreaHistory" prefHeight="258.0" prefWidth="444.0" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1.6000000000000227" AnchorPane.topAnchor="0.0" />
+                                                               </children></AnchorPane>
+                                                        </content>
+                                                      </Tab>
+                                                  </tabs>
+                                                </TabPane>
+                                             </children>
+                                          </AnchorPane>
+                                      </items>
+                                    </SplitPane>
+                                 </children>
+                          </AnchorPane>
+                        </items>
+                      </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabTransactions1" text="Dashboard">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text layoutX="33.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Nombres de pièces totales de collections" />
+                        <Text layoutX="189.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px;" text="120" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="289.0" layoutX="65.0" layoutY="257.0" stroke="BLACK" strokeType="INSIDE" width="298.0" />
+                        <Text layoutX="111.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Notifications et rappels" />
+                        <ScrollBar layoutX="349.0" layoutY="259.0" orientation="VERTICAL" prefHeight="285.0" prefWidth="14.0" />
+                        <PieChart layoutX="641.0" layoutY="81.0" prefHeight="206.0" prefWidth="219.0" />
+                        <Text layoutX="618.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Types de pièces de collections" />
+                        <Text layoutX="633.0" layoutY="324.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Achats et ventes" />
+                        <LineChart layoutX="618.0" layoutY="345.0" prefHeight="216.0" prefWidth="360.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabAchats" text="Achats">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="-1.0" prefHeight="594.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="À payer">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Payée" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Payée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date de paiement" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Envoyée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date d'envoie" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Arrivée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date de réception" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabAchats1" text="Ventes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="-1.0" prefHeight="594.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="À payer">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Payée" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Payée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date de paiement" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Envoyée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date d'envoie" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Arrivée">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID" />
+                                          <TableColumn prefWidth="75.0" text="Vendeur" />
+                                          <TableColumn prefWidth="75.0" text="Prix" />
+                                          <TableColumn prefWidth="75.0" text="Date de réception" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabAchats11" text="Prêt/Emprunt">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="581.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                           <tabs>
+                              <Tab text="Prêt">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID Pièce" />
+                                          <TableColumn prefWidth="75.0" text="Période" />
+                                          <TableColumn prefWidth="75.0" text="Destination" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                              <Tab text="Emprunt">
+                                 <content>
+                                    <TableView prefHeight="200.0" prefWidth="200.0">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="ID Pièce" />
+                                          <TableColumn prefWidth="75.0" text="Période" />
+                                          <TableColumn prefWidth="75.0" text="Provenance" />
+                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color red="0.625" green="0.625" blue="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Pane prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>

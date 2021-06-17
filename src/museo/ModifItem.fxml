@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="600.0" maxWidth="750.0" minHeight="479.0" minWidth="642.0" prefHeight="479.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="museo.ModifItemController">
+  <children>
+    <AnchorPane fx:id="AnchorPaneModifyItem" maxHeight="530.0" maxWidth="700.0" prefHeight="479.0" prefWidth="599.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="40.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Nom de la pièce" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="14.41796875" />
+            <TextField fx:id="TextFieldItemName" layoutX="37.0" layoutY="41.0" prefHeight="26.0" prefWidth="266.0" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="39.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Date d'acquisition" AnchorPane.leftAnchor="39.0" />
+            <DatePicker fx:id="DatePicker" layoutX="37.0" layoutY="101.0" prefHeight="26.0" prefWidth="266.0" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="37.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="État" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="40.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Sous-état" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="39.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Description" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="40.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Prix" wrappingWidth="33.84765625" AnchorPane.leftAnchor="39.0" />
+            <Button fx:id="ButtonSave" layoutX="284.0" layoutY="439.0" mnemonicParsing="false" onAction="#handleButtonSave" text="Enregistrer" AnchorPane.bottomAnchor="14.599999999999966" AnchorPane.topAnchor="439.0" />
+            <Button fx:id="ButtonAdd" layoutX="445.0" layoutY="276.0" mnemonicParsing="false" onAction="#handleButtonAdd" text="+" />
+            <ChoiceBox fx:id="ChoiceBoxState" layoutX="37.0" layoutY="161.0" prefHeight="26.0" prefWidth="124.0" AnchorPane.leftAnchor="39.0" />
+            <ChoiceBox fx:id="ChoiceBoxSubState" layoutX="37.0" layoutY="218.0" prefHeight="26.0" prefWidth="124.0" AnchorPane.leftAnchor="39.0" />
+            <TextArea fx:id="TextAreaDescription" layoutX="41.0" layoutY="350.0" prefHeight="82.0" prefWidth="554.0" wrapText="true" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="67.0" AnchorPane.topAnchor="350.0" />
+            <TextField fx:id="TextFieldPrice" layoutX="41.0" layoutY="276.0" prefHeight="26.0" prefWidth="230.0" AnchorPane.leftAnchor="39.0" />
+            <Text layoutX="284.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 30px;" text="€" />
+            <Pane layoutX="342.0" layoutY="36.0" prefHeight="224.0" prefWidth="230.0" AnchorPane.bottomAnchor="219.0" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="69.99999999999997" AnchorPane.topAnchor="36.0">
+               <children>
+                  <ImageView fx:id="ImageViewNewImage" fitHeight="224.0" fitWidth="230.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Text layoutX="181.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Catégorie" />
+            <Text layoutX="183.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 20px;" text="Période" />
+            <ChoiceBox fx:id="ChoiceBoxTag" layoutX="182.0" layoutY="161.0" prefHeight="26.0" prefWidth="124.0" />
+            <ChoiceBox fx:id="ChoiceBoxEra" layoutX="182.0" layoutY="218.0" prefHeight="26.0" prefWidth="124.0" />
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

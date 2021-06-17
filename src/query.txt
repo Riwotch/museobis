@@ -1,0 +1,3 @@
+SELECT item.id, item.name, item.description, item.image, item.price, item.acquired_at, item.modified_at, item.is_active, era.name, bibliography.title , bibliography.link FROM ((item INNER JOIN era ON item.id_era = era.id) INNER JOIN bibliography ON item.id_bibliography = bibliography.id)
+
+SELECT item.id, item.name, item.description, item.image, item.price, item.acquired_at, item.modified_at, item.is_active, era.name AS eraName, bibliography.title AS biblioTitle , bibliography.link AS biblioLink, tag.name AS tagName, substate.name AS substateName FROM ((((item INNER JOIN era ON item.id_era = era.id) INNER JOIN bibliography ON item.id_bibliography = bibliography.id) INNER JOIN tag ON item.id_tag = tag.id) INNER JOIN substate ON item.id_substate = substate.id)
